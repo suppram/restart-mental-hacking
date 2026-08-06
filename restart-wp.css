@@ -1,0 +1,513 @@
+/* RESTART — 1:1 bundle for the Elementor page (rambam-medicine.org.il/restart-preview)
+   Served from Vercel. Pairs with restart-wp.js. Class names match the original index.html. */
+
+:root{
+  --mh-deep-purple:#3B2A78;--mh-violet:#6C4FA1;--mh-lavender:#A98BC9;--mh-lavender-10:#F5F1F9;
+  --mh-lavender-25:rgba(169,139,201,.25);--mh-gold-sand:#D8B87E;--mh-amber:#D98A2B;
+  --mh-deep-navy:#1E2A66;--mh-ink:#2B2350;--mh-grow-green:#2FA46E;
+  --font-latin:'FbMonopolitser En','FbMonopolitser',sans-serif;
+  --ease-brand:cubic-bezier(.22,.61,.36,1);--dur-med:.35s;--radius-lg:18px;
+}
+
+/* ===== injected pinned hero (desktop) ===== */
+.rst-hero-pin{height:240svh;position:relative;background:var(--mh-deep-purple);direction:rtl}
+.rst-hero-pin .hero{display:grid;place-items:center;text-align:center;background:var(--mh-deep-purple);color:#fff;overflow:hidden;position:sticky;top:0;height:100svh}
+.rst-hero-pin .hero-inner,.rst-hero-pin .hero-slide2{grid-area:1/1}
+.rst-hero-pin .hero-slide2{position:relative;z-index:2;max-width:840px;padding:0 24px;opacity:0;transform:translateY(40px);text-shadow:0 2px 26px rgba(30,42,102,.55)}
+.rst-hero-pin .pitch{font-size:clamp(27px,3.5vw,38px);font-weight:400;color:#F3EFFA;line-height:1.8;margin:0 0 22px;font-family:'FbMonopolitser',sans-serif}
+.rst-hero-pin .pitch2{font-size:clamp(33px,4.3vw,48px);font-weight:900;color:var(--mh-gold-sand);margin:0;font-family:'FbMonopolitser',sans-serif}
+.rst-hero-pin .seq-canvas,.rst-hero-pin .seq-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rst-hero-pin .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 62% 58% at 50% 46%,rgba(43,35,80,.5),transparent 72%),linear-gradient(180deg,rgba(59,42,120,.55) 0%,rgba(30,42,102,.42) 45%,rgba(43,35,80,.9) 100%)}
+.rst-hero-pin .hero-inner{position:relative;z-index:2;padding:88px 24px 64px;max-width:860px;text-shadow:0 2px 26px rgba(30,42,102,.55);font-family:'FbMonopolitser',sans-serif}
+.rst-hero-pin .hero-word{font-family:var(--font-latin);font-weight:200;font-size:clamp(64px,11vw,150px);letter-spacing:.06em;line-height:1;color:#fff}
+.rst-hero-pin .hero-tag{font-size:clamp(20px,2.6vw,26px);font-weight:500;color:var(--mh-gold-sand);letter-spacing:.02em;margin:12px 0 20px}
+.rst-hero-pin h1{font-size:clamp(33px,5.4vw,61px);font-weight:900;max-width:820px;margin:0 auto;color:#fff;line-height:1.18;text-wrap:balance;font-family:'FbMonopolitser',sans-serif}
+.rst-hero-pin h1 .amber{color:var(--mh-amber)}
+.rst-hero-pin .hero-sub{font-weight:400;font-size:clamp(20px,2.5vw,25px);max-width:700px;margin:22px auto 32px;line-height:1.6}
+.rst-hero-pin .hero-sub b{display:block;margin-top:8px;font-weight:700;font-size:clamp(21px,2.7vw,27px);color:var(--mh-gold-sand)}
+.rst-hero-pin .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.rst-hero-pin .rbtn{display:inline-block;border-radius:999px;padding:20px 44px;font-size:25px;font-weight:700;text-decoration:none;transition:transform .25s ease,filter .25s ease,background .25s ease;font-family:'FbMonopolitser',sans-serif}
+.rst-hero-pin .rbtn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.rst-hero-pin .rbtn-gold{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--mh-gold-sand),var(--mh-amber));color:#fff;box-shadow:0 10px 26px rgba(217,138,43,.38)}
+.rst-hero-pin .rbtn-gold::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-130%);animation:rstShine 3.4s ease-in-out infinite}
+.rst-hero-pin .rbtn-ghost{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.rst-hero-pin .rbtn-ghost:hover{background:rgba(255,255,255,.1)}
+@keyframes rstShine{0%,55%{transform:translateX(-130%)}85%,100%{transform:translateX(130%)}}
+.rst-hero-pin .scroll-cue{position:absolute;bottom:26px;inset-inline:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:#fff;opacity:.85;font-size:14px;z-index:2;animation:rstCue 2.4s var(--ease-brand) infinite;transition:opacity .4s}
+@keyframes rstCue{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+/* reveal-in for injected hero */
+.rst-hero-pin .rv{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease-brand),transform .7s var(--ease-brand)}
+.rst-hero-pin .rv.in{opacity:1;transform:none}
+.rst-hero-pin .rv.d1{transition-delay:.08s}.rst-hero-pin .rv.d2{transition-delay:.18s}
+.rst-hero-pin .rv.d3{transition-delay:.3s}.rst-hero-pin .rv.d4{transition-delay:.42s}
+
+/* hide Elementor's native hero + intro while injected hero is active (desktop only; JS adds body.rst-scrub) */
+@media(min-width:701px){
+  body.rst-scrub .elementor-element-266cae3,
+  body.rst-scrub .elementor-element-49e3595{display:none!important}
+}
+
+/* ===== FRE background sequence ===== */
+.elementor-element-457933d{position:relative;overflow:hidden}
+.elementor-element-457933d{background:linear-gradient(165deg,#241A52 0%,#2A1F5E 55%,#1E2A66 100%)!important}
+.elementor-element-457933d .seq-poster,.elementor-element-457933d .seq-canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42;animation:rstKenb 20s ease-in-out infinite alternate;pointer-events:none;z-index:0}
+.elementor-element-457933d>.e-con-inner{text-shadow:0 2px 22px rgba(20,12,45,.65)}
+.elementor-element-457933d .elementor-widget-text-editor{max-width:840px;margin-inline:auto}
+@keyframes rstKenb{from{transform:scale(1)}to{transform:scale(1.07)}}
+.elementor-element-457933d>.e-con-inner{position:relative;z-index:2}
+
+/* ===== pointer-tracked glow ring (FRE cards, growth boxes, testimonial cards) ===== */
+.rst-glow{position:relative}
+.rst-glow::after{content:"";position:absolute;inset:-2px;border-radius:inherit;border:2.5px solid transparent;pointer-events:none;
+ background:radial-gradient(circle,#D8B87E 10%,rgba(216,184,126,0) 20%),radial-gradient(circle at 40% 40%,#D98A2B 5%,rgba(217,138,43,0) 15%),radial-gradient(circle at 60% 60%,#6C4FA1 10%,rgba(108,79,161,0) 20%),radial-gradient(circle at 40% 60%,#A98BC9 10%,rgba(169,139,201,0) 20%),repeating-conic-gradient(from 236.84deg at 50% 50%,#D8B87E 0%,#D98A2B 5%,#6C4FA1 10%,#A98BC9 15%,#D8B87E 20%);
+ background-attachment:fixed;
+ -webkit-mask-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),conic-gradient(from calc((var(--start,0) - 55)*1deg),transparent 0deg,#fff,transparent 110deg);
+ -webkit-mask-clip:padding-box,border-box;-webkit-mask-composite:source-in;
+ mask-image:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),conic-gradient(from calc((var(--start,0) - 55)*1deg),transparent 0deg,#fff,transparent 110deg);
+ mask-clip:padding-box,border-box;mask-composite:intersect;
+ opacity:var(--active,0);transition:opacity .3s}
+
+/* ===== FRE widths: intro + quote wrap like the original ===== */
+.elementor-element-5cc0ff2{max-width:840px!important;margin-inline:auto!important}
+.elementor-element-a2f0d0a{max-width:900px!important;margin-inline:auto!important}
+
+/* ===== magic-text word reveal (Yigal quote) ===== */
+.rst-mq .mw{position:relative;display:inline-block;margin-inline-end:.28em}
+.rst-mq .mw .g{color:rgba(216,184,126,.22)}
+.rst-mq .mw .w{position:absolute;inset-inline-start:0;top:0;color:var(--mh-gold-sand);opacity:0}
+
+/* ===== mobile: 45deg flowing gradient behind Elementor hero ===== */
+@media(max-width:700px){
+  .elementor-element-266cae3{position:relative;overflow:hidden}
+  .elementor-element-266cae3 .rst-flow{position:absolute;width:calc(100% + 1500px);height:calc(100% + 1500px);top:-750px;left:-750px;z-index:0;pointer-events:none;will-change:transform;
+    background:repeating-linear-gradient(45deg,#140E33 0,#2A1F5E 140px,#3B2A78 280px,#57429B 420px,#7B5BB8 500px,#57429B 580px,#3B2A78 720px,#2A1F5E 860px,#140E33 1000px);
+    animation:rstFlow 34s linear infinite}
+  .elementor-element-266cae3>.e-con-inner{position:relative;z-index:2}
+}
+@keyframes rstFlow{from{transform:translate3d(0,0,0)}to{transform:translate3d(-707px,707px,0)}}
+
+/* ===== original stroke icons (swap over FA) ===== */
+.rst-ic svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;display:block}
+
+/* ===== mentor section: tighter, centered, smaller photo ===== */
+@media(min-width:901px){
+  .elementor-element-81fdb31{max-width:1140px!important;margin-inline:auto!important;gap:56px!important}
+  .elementor-element-81fdb31>.e-con-inner{align-items:flex-start!important;padding-bottom:50px!important}
+  .elementor-element-48391af{width:36%!important;max-width:36%!important;position:sticky!important;top:100px;align-self:flex-start!important}
+  .elementor-element-003dd14{width:56%!important;max-width:56%!important}
+  /* trim white gap before press section */
+  .elementor-element-80c8656>.e-con-inner{padding-top:44px!important}
+}
+
+/* ===== press laurels (compact, exact original proportions) ===== */
+.elementor-element-761521b{gap:120px 120px!important;justify-content:center!important;margin-top:56px!important}
+.elementor-element-fc3f770,.elementor-element-c9e8db3{background:transparent!important;border:none!important;box-shadow:none!important;position:relative;width:340px!important;max-width:340px!important;min-height:320px;justify-content:center;align-items:center;padding:24px 58px!important;gap:8px!important;row-gap:8px!important}
+.elementor-element-fc3f770:hover,.elementor-element-c9e8db3:hover{transform:none!important;box-shadow:none!important}
+.elementor-element-fc3f770>.rst-wreath,.elementor-element-c9e8db3>.rst-wreath,.rst-wreath{position:absolute!important;top:50%!important;left:50%!important;transform:translate(-50%,-50%)!important;width:380px!important;height:420px!important;fill:#2B2350;z-index:0;pointer-events:none}
+.elementor-element-fc3f770>*,.elementor-element-c9e8db3>*{position:relative;z-index:1}
+.elementor-element-fc3f770 .elementor-heading-title,.elementor-element-c9e8db3 .elementor-heading-title{font-size:29px!important;font-weight:900;color:#2B2350;line-height:1.15}
+.elementor-element-fc3f770 .elementor-divider,.elementor-element-c9e8db3 .elementor-divider{padding:0!important}
+.elementor-element-fc3f770 .elementor-divider-separator,.elementor-element-c9e8db3 .elementor-divider-separator{width:160px!important;margin:6px auto!important;border-color:rgba(43,35,80,.6)!important}
+.elementor-element-fc3f770 .elementor-widget-text-editor,.elementor-element-c9e8db3 .elementor-widget-text-editor{font-size:24px!important;font-weight:400!important;color:#2B2350;line-height:1.5;max-width:280px}
+.elementor-element-fc3f770 .elementor-widget-text-editor strong,.elementor-element-c9e8db3 .elementor-widget-text-editor strong{display:inline-block;margin-top:14px}
+/* ===== press subtitle enlarge ===== */
+.elementor-element-4473651 .elementor-heading-title,.elementor-element-4473651 .elementor-widget-text-editor,.elementor-element-4473651 p{font-size:34px!important}
+.elementor-element-fc3f770 .elementor-button,.elementor-element-c9e8db3 .elementor-button{background:linear-gradient(90deg,#E3B341,#C89A54)!important;letter-spacing:.16em;font-size:15.5px!important;padding:6px 22px!important;border-radius:10px!important}
+
+/* ===== press clippings — overlapping tilted tiles like the original ===== */
+.elementor-element-1e31151{max-width:1000px!important;margin-inline:auto!important;margin-top:56px!important;gap:0!important;justify-content:center!important;position:relative}
+.elementor-element-61e98db,.elementor-element-bda0dfa{width:52%!important;max-width:52%}
+.elementor-element-61e98db,.elementor-element-bda0dfa,
+.elementor-element-61e98db .elementor-widget-container,.elementor-element-bda0dfa .elementor-widget-container{background:none!important;box-shadow:none!important;border:none!important;padding:0!important;border-radius:0!important}
+.elementor-element-61e98db img,.elementor-element-bda0dfa img{width:100%!important;background:#fff;padding:12px;border-radius:16px;box-shadow:0 18px 44px rgba(59,42,120,.18),0 4px 12px rgba(59,42,120,.1)}
+.elementor-element-61e98db{z-index:2;transform:rotate(-7deg) translateY(6px);margin-left:-4%!important}
+.elementor-element-bda0dfa{z-index:1;transform:rotate(5deg) translateY(18px);margin-right:-4%!important}
+.elementor-element-61e98db:hover{transform:rotate(-2deg) translateY(2px)}
+.elementor-element-bda0dfa:hover{transform:rotate(1deg) translateY(10px)}
+.elementor-element-61e98db,.elementor-element-bda0dfa{transition:transform .55s cubic-bezier(.22,.61,.36,1)}
+
+/* ===== roadmap: capped row, bounded connector, here-badge ===== */
+.elementor-element-32787f3{position:relative;max-width:1100px!important;margin-inline:auto!important}
+.elementor-element-32787f3::before{content:""!important;position:absolute!important;top:50%!important;bottom:auto!important;left:16%!important;right:16%!important;width:auto!important;height:2px!important;background:linear-gradient(90deg,#D8B87E,#6C4FA1)!important;z-index:0;border-radius:0!important}
+.elementor-element-32787f3>.e-con{position:relative;z-index:1}
+.elementor-element-9a2c36e{overflow:visible!important}
+.rst-here-badge{position:absolute;top:-17px;inset-inline-start:26px;background:#6C4FA1;color:#fff;font-weight:700;font-size:21px;padding:8px 26px;border-radius:99px;z-index:4;box-shadow:0 6px 16px rgba(59,42,120,.35);font-family:'FbMonopolitser',sans-serif;white-space:nowrap}
+.elementor-element-39d0562{max-width:900px!important;margin-inline:auto!important;width:100%}
+/* roadmap logos: fixed equal height so gold kickers align on one line */
+.elementor-element-32787f3 img{height:62px!important;width:auto!important;object-fit:contain!important}
+/* RESTART card emphasis (current course) */
+.elementor-element-9a2c36e{position:relative;z-index:3}
+.elementor-element-24fedbd .elementor-heading-title{font-size:54px!important}
+
+/* ===== endorse: push content right over panorama + gold quote glyph ===== */
+@media(min-width:901px){
+  .elementor-element-943958b>.e-con-inner{padding-left:37%;padding-right:2%}
+}
+.elementor-element-8a64828::before{content:"❝";display:block;color:#D8B87E;font-size:44px;line-height:1;margin-bottom:12px;text-align:center}
+
+/* ===== domain tile numbers (01-07, top corner like the original) ===== */
+.elementor-element-f37e0fc>.e-con,.elementor-element-49f63bb>.e-con{position:relative}
+.elementor-element-f37e0fc .elementor-widget-icon-box,.elementor-element-cb6494f{position:relative}
+.elementor-element-7836c17::before{content:"01"}
+.elementor-element-78055e6::before{content:"02"}
+.elementor-element-d214b26::before{content:"03"}
+.elementor-element-9bdf9ad::before{content:"04"}
+.elementor-element-baee09a::before{content:"05"}
+.elementor-element-d458ebb::before{content:"06"}
+.elementor-element-cb6494f::before{content:"07"}
+.elementor-element-7836c17::before,.elementor-element-78055e6::before,.elementor-element-d214b26::before,
+.elementor-element-9bdf9ad::before,.elementor-element-baee09a::before,.elementor-element-d458ebb::before,
+.elementor-element-cb6494f::before{position:absolute;top:12px;inset-inline-start:16px;font-family:'FbMonopolitser En','FbMonopolitser',sans-serif;font-weight:300;font-size:14px;letter-spacing:.08em;color:rgba(216,184,126,.55);z-index:2}
+
+/* ===== growth boxes: force 3-up row ===== */
+@media(min-width:768px){.elementor-element-ea25f91>.elementor-element{width:31%!important;max-width:31%!important}}
+
+/* ===== growth cards: original gradient, corner number, hover, icon draw ===== */
+.elementor-element-b5f8da1,.elementor-element-c7eb102,.elementor-element-72adbec{position:relative;background:linear-gradient(180deg,#fff,#F5F1F9)!important;border:1px solid rgba(169,139,201,.25)!important;border-radius:18px!important;box-shadow:none!important;transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s!important}
+.elementor-element-b5f8da1:hover,.elementor-element-c7eb102:hover,.elementor-element-72adbec:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(59,42,120,.14)!important}
+.rst-gnum{position:absolute;top:16px;inset-inline-start:20px;font-family:'FbMonopolitser En','FbMonopolitser',sans-serif;font-weight:300;font-size:15px;letter-spacing:.08em;color:#D8B87E;z-index:2}
+.elementor-element-b5f8da1 .elementor-icon-box-title,.elementor-element-c7eb102 .elementor-icon-box-title,.elementor-element-72adbec .elementor-icon-box-title{font-size:30px!important;font-weight:900!important;color:#2B2350!important}
+.elementor-element-b5f8da1 .elementor-icon-box-description,.elementor-element-c7eb102 .elementor-icon-box-description,.elementor-element-72adbec .elementor-icon-box-description{font-size:22px!important;line-height:1.7!important}
+.rst-gin .rst-ic{animation:rstGrowPop .9s cubic-bezier(.22,.61,.36,1) both}
+.rst-gin .rst-ic svg path{stroke-dasharray:95;stroke-dashoffset:95;animation:rstDrawIn 1.3s .25s cubic-bezier(.22,.61,.36,1) forwards}
+.rst-gin .rst-ic svg{animation:rstSway 4.5s ease-in-out 1.8s infinite alternate}
+@keyframes rstGrowPop{0%{transform:scale(.45) translateY(12px)}62%{transform:scale(1.08)}100%{transform:scale(1) translateY(0)}}
+@keyframes rstDrawIn{to{stroke-dashoffset:0}}
+@keyframes rstSway{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+
+/* ===== frontal track banner pill (real element injected by restart-wp.js) ===== */
+.elementor-element-ae1022a{overflow:visible!important}
+.rst-track-badge{position:absolute;top:-20px;right:24px;background:linear-gradient(135deg,#C08E42,#A55E0C);color:#fff;font-weight:800;font-size:24px;padding:9px 28px;border-radius:99px;z-index:3;box-shadow:0 6px 16px rgba(165,94,12,.4);font-family:'FbMonopolitser',sans-serif;white-space:nowrap;text-shadow:0 1px 2px rgba(50,25,0,.55);line-height:1.2}
+/* native Elementor heading variant (widget wrapper carries .rst-track-badge; text sits in the child) */
+.elementor-widget-heading.rst-track-badge .elementor-heading-title{color:#fff;font:inherit;line-height:inherit;margin:0;padding:0;background:none;text-shadow:inherit}
+.elementor-widget-heading.rst-track-badge .elementor-widget-container{background:none;padding:0;margin:0}
+/* students-page benefit tag (88c0be4): Elementor's inline-style sanitizer strips background/border/color/
+   font-weight/box-shadow from heading <span> tags → restore them here (bundle CSS is not sanitized). */
+.elementor-element-88c0be4 .elementor-heading-title{text-align:center!important}
+.elementor-element-88c0be4 .elementor-heading-title>span{display:flex!important;justify-content:center!important;align-items:center!important;text-align:center!important;background:#fff!important;border:2px solid #3B2A78!important;color:#8A5600!important;font-weight:500!important;box-shadow:0 6px 18px rgba(59,42,120,.14)!important}
+.elementor-element-88c0be4 .elementor-heading-title>span span{color:#8A5600!important;font-weight:500!important;text-align:center!important}
+
+/* ===== header solid state: reliable dark text + slimmer bar ===== */
+.elementor-element-02e7bd7.elementor-sticky--effects{padding-top:8px!important;padding-bottom:8px!important}
+.elementor-element-02e7bd7.elementor-sticky--effects .elementor-heading-title,
+.elementor-element-02e7bd7.elementor-sticky--effects .elementor-heading-title *{color:#2B2350!important}
+.elementor-element-02e7bd7.elementor-sticky--effects .elementor-icon-list-text,
+.elementor-element-02e7bd7.elementor-sticky--effects .elementor-icon-list-item a,
+.elementor-element-02e7bd7.elementor-sticky--effects .elementor-icon-list-item a span{color:#3d3654!important}
+.elementor-element-02e7bd7 .elementor-icon-list-text{transition:color .35s ease}
+
+/* ===== pain marquee (3 scrolling columns, injected by JS on desktop) ===== */
+.rst-tcolumns{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1060px;margin:40px auto 0;height:540px;overflow:hidden;-webkit-mask:linear-gradient(180deg,transparent,#000 11%,#000 89%,transparent);mask:linear-gradient(180deg,transparent,#000 11%,#000 89%,transparent);direction:rtl}
+.rst-tcolumns .tcol ul{display:flex;flex-direction:column;gap:24px;margin:0;padding:0;list-style:none;animation:rstTscroll var(--dur,30s) linear infinite}
+.rst-tcolumns .tcol:hover ul{animation-play-state:paused}
+@keyframes rstTscroll{to{transform:translateY(-50%)}}
+.rst-tcolumns .tcard{background:#fff;border:1px solid #E9E4F3;border-radius:22px;padding:28px;box-shadow:0 12px 34px rgba(59,42,120,.07)}
+.rst-tcolumns .tcard p{margin:0;font-weight:500;font-size:22px;line-height:1.7;color:#3F3860;font-family:'FbMonopolitser',sans-serif;text-align:right}
+.rst-tcolumns .tcard footer{display:flex;justify-content:center;margin-top:14px}
+.rst-tcolumns .tdeco{font-family:'FbMonopolitser',sans-serif;font-size:32px;line-height:1;font-weight:900;color:#D8B87E;opacity:.55}
+@media(min-width:701px){body.rst-marquee .elementor-element-3d55e59{display:none!important}}
+
+/* ===== pain section: fade into white like the original ===== */
+.elementor-element-176c0dc{background:linear-gradient(180deg,rgba(169,139,201,.25),#fff 80%)!important}
+
+/* ===== featured testimonial: align to top of sibling card ===== */
+.elementor-element-95b7db9{margin-top:0!important;align-self:stretch!important}
+
+/* ===== pain quote wall (native fallback): enlarge text +30% ===== */
+.elementor-element-3d55e59 .elementor-widget-text-editor,
+.elementor-element-3d55e59 .elementor-widget-text-editor p{font-size:24px!important;line-height:1.75!important}
+
+/* ===== domains: original hover (rounded ring on the inner container), strip layout ===== */
+.elementor-element-f37e0fc .elementor-widget-icon-box{transition:transform .35s cubic-bezier(.22,.61,.36,1)!important}
+.elementor-element-f37e0fc .elementor-widget-icon-box>.elementor-widget-container{border-radius:14px;transition:border-color .35s,background .35s,box-shadow .35s}
+.elementor-element-f37e0fc .elementor-widget-icon-box:hover{transform:translateY(-5px)}
+.elementor-element-f37e0fc .elementor-widget-icon-box:hover>.elementor-widget-container{border-color:#D8B87E!important;background:rgba(255,255,255,.13)!important;box-shadow:0 12px 34px rgba(0,0,0,.35),0 0 0 1px #D8B87E}
+.elementor-element-cb6494f{transition:border-color .35s,background .35s,transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s!important;border-radius:14px!important}
+.elementor-element-cb6494f:hover{border-color:#D8B87E!important;background:rgba(255,255,255,.13)!important;transform:translateY(-5px);box-shadow:0 12px 34px rgba(0,0,0,.35),0 0 0 1px #D8B87E!important}
+.elementor-element-f37e0fc{max-width:1104px!important;margin-inline:auto!important}
+.elementor-element-49f63bb{max-width:1104px!important;margin-inline:auto!important;width:100%;background:transparent!important;border:0!important;box-shadow:none!important;padding:0 48px!important;border-radius:0!important}
+.elementor-element-cb6494f{width:100%!important;max-width:100%!important;background:rgba(255,255,255,.09)!important;border:1px solid rgba(255,255,255,.22)!important;padding:26px 44px!important}
+.elementor-element-cb6494f .elementor-icon-box-content{display:contents}
+.elementor-element-cb6494f{border-color:rgba(255,255,255,.22)!important}
+.elementor-element-cb6494f .elementor-icon-box-wrapper{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:20px;text-align:right!important}
+.elementor-element-cb6494f .elementor-icon-box-icon{margin:0!important;flex:none}
+.elementor-element-cb6494f .elementor-icon-box-title{margin:0!important;white-space:nowrap}
+.elementor-element-cb6494f .elementor-icon-box-description{max-width:520px;margin:0!important}
+.elementor-element-0432164 p{margin:0!important}
+.elementor-element-0432164 p+p{margin-top:8px!important}
+.elementor-element-0432164{margin-top:46px!important}
+.elementor-element-0432164 p:nth-child(1){font-size:48px!important;line-height:1.3!important}
+.elementor-element-0432164 p:nth-child(2){font-size:42px!important}
+/* ===== problem-close: loosen tight line spacing ===== */
+.elementor-element-fcd8b3f,.elementor-element-fcd8b3f *{line-height:1.6!important}
+
+/* ===== endorse: original strong side-gradient for text contrast ===== */
+.elementor-element-943958b::before{background:linear-gradient(90deg,rgba(30,42,102,.3) 0%,rgba(43,35,80,.68) 34%,rgba(43,35,80,.9) 58%,rgba(30,42,102,.96) 100%),radial-gradient(ellipse 72% 58% at 68% 0%,rgba(216,184,126,.12),transparent 62%)!important;opacity:1!important}
+.elementor-element-943958b{text-shadow:0 1px 18px rgba(20,12,45,.6)}
+
+/* ===== price card: capped width, clipped corners, tight rows ===== */
+.elementor-element-ddaa52f{max-width:1140px!important;margin-inline:auto!important;background:#fff!important;border-radius:22px!important;overflow:hidden!important;box-shadow:0 18px 44px rgba(59,42,120,.10)!important;padding:0!important;gap:0!important;align-items:stretch!important}
+.elementor-element-54c353c{align-self:stretch!important;justify-content:center;flex-grow:1!important}
+.elementor-element-54c353c{border-radius:0!important}
+.elementor-element-8222680{padding:34px 38px!important;justify-content:center}
+.elementor-element-d1b41bc .elementor-icon-list-item{padding-block:15px!important}
+.elementor-element-d1b41bc .elementor-icon-list-icon i{color:#6C4FA1;font-size:19px}
+.elementor-element-d1b41bc .elementor-icon-list-text{font-size:18px;line-height:1.6}
+
+/* ===== syllabus: centered column like the original ===== */
+.elementor-element-af4e68c>.e-con-inner{max-width:1140px!important;margin-inline:auto!important;width:100%}
+
+/* ===== syllabus accordion — original look ===== */
+.elementor-element-b12c31f .elementor-accordion-item{border:none!important;border-bottom:1px solid #EAE2F2!important;background:none!important;border-radius:0!important}
+.elementor-element-b12c31f .elementor-tab-title{padding:22px 6px!important;border:none!important}
+.elementor-element-b12c31f .elementor-tab-title a,.elementor-element-b12c31f .elementor-tab-title{font-size:26px!important;line-height:1.35!important;font-weight:700!important;color:#2B2350!important;font-family:'FbMonopolitser',sans-serif!important}
+.elementor-element-b12c31f .elementor-tab-title a:hover{color:#6C4FA1!important}
+.rst-acc-num{font-family:'FbMonopolitser En','FbMonopolitser',sans-serif;font-weight:300;font-size:34px;color:#6C4FA1;min-width:40px;display:inline-block;line-height:1;vertical-align:middle;margin-inline-end:4px}
+.elementor-element-b12c31f .elementor-accordion-icon{border:none!important;background:none!important;width:auto;height:auto;display:inline-flex;align-items:center;color:#6C4FA1!important;font-size:20px}
+.elementor-element-b12c31f .elementor-tab-content{border:none!important;font-size:18px;line-height:1.75}
+.elementor-element-b12c31f .elementor-tab-title{display:flex;align-items:center;gap:8px}
+.elementor-element-b12c31f .elementor-tab-title a{flex:1;order:1}
+.elementor-element-b12c31f .elementor-accordion-icon{order:2;margin-inline-start:auto;flex:none}
+
+/* ===== FAQ accordion — original look (rows, not boxes) ===== */
+.elementor-element-a9bf4e7>.e-con-inner{max-width:1140px!important;margin-inline:auto!important;width:100%}
+.elementor-element-890f0be .elementor-accordion-item{border:none!important;border-bottom:1px solid #D5CCE6!important;background:none!important;border-radius:0!important}
+.elementor-element-890f0be .elementor-tab-title{padding:24px 6px!important;border:none!important;display:flex;align-items:center;gap:16px}
+.elementor-element-890f0be .elementor-tab-title a,.elementor-element-890f0be .elementor-tab-title{font-size:28px!important;line-height:1.3!important;font-weight:700!important;color:#2B2350!important;font-family:'FbMonopolitser',sans-serif!important}
+.elementor-element-890f0be .elementor-tab-title a{flex:1;order:1}
+.elementor-element-890f0be .elementor-tab-title a:hover{color:#6C4FA1!important}
+.elementor-element-890f0be .elementor-accordion-icon{order:2;margin-inline-start:auto;flex:none;border:none!important;background:none!important;width:auto;height:auto;display:inline-flex;align-items:center;color:#6C4FA1!important;font-size:20px}
+.elementor-element-890f0be .elementor-tab-content{border:none!important;font-size:24px;line-height:1.7;padding:0 6px 24px!important}
+
+/* ===== fair-model cards: enlarge all text +30% ===== */
+.elementor-element-909e057 .elementor-icon-box-title,.elementor-element-67c62a4 .elementor-icon-box-title,.elementor-element-f0bc437 .elementor-icon-box-title{font-size:27px!important}
+.elementor-element-909e057 .elementor-icon-box-description,.elementor-element-67c62a4 .elementor-icon-box-description,.elementor-element-f0bc437 .elementor-icon-box-description{font-size:23px!important;line-height:1.7!important}
+.elementor-element-ef9ac6f,.elementor-element-ef9ac6f .elementor-heading-title,.elementor-element-ef9ac6f .elementor-widget-text-editor,.elementor-element-ef9ac6f p{font-size:22px!important;line-height:1.6!important}
+
+/* ===== lead form — 1:1 with the original ===== */
+.elementor-element-aa9f129{max-width:640px!important;width:100%!important;margin:44px auto 0!important;padding:36px 34px!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.elementor-element-aa9f129 .elementor-field-group{margin-bottom:14px!important;padding:0!important}
+.elementor-element-aa9f129 .elementor-form-fields-wrapper{gap:14px 14px;display:flex;flex-wrap:wrap}
+@media(min-width:641px){
+  .elementor-element-aa9f129 .elementor-field-type-text,
+  .elementor-element-aa9f129 .elementor-field-type-email,
+  .elementor-element-aa9f129 .elementor-field-type-tel,
+  .elementor-element-aa9f129 .elementor-field-type-select{width:calc(50% - 7px)!important;max-width:calc(50% - 7px)!important;flex:0 0 calc(50% - 7px)!important}
+}
+.elementor-element-aa9f129 .elementor-field-type-acceptance,.elementor-element-aa9f129 .elementor-field-type-submit{width:100%!important;max-width:100%!important}
+.elementor-element-aa9f129 .elementor-field-textual,.elementor-element-aa9f129 select{background:rgba(255,255,255,.94)!important;border:1px solid transparent!important;border-radius:10px!important;padding:15px 17px!important;font-size:18px!important;color:#2B2350!important;font-family:'FbMonopolitser',Heebo,sans-serif!important;box-shadow:none!important}
+.elementor-element-aa9f129 .elementor-field-textual::placeholder{color:#7A7194;opacity:1}
+.elementor-element-aa9f129 select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%233B2A78' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:left 14px center!important;cursor:pointer}
+.elementor-element-aa9f129 .elementor-field-type-acceptance .elementor-field-subgroup label,.elementor-element-aa9f129 .elementor-field-type-acceptance label{font-size:17.5px!important;color:#C7B9E2!important;line-height:1.65!important}
+.elementor-element-aa9f129 input[type=checkbox]{width:17px;height:17px;accent-color:#D8B87E}
+.elementor-element-aa9f129 .elementor-field-type-submit{justify-content:center!important;margin-top:8px}
+.elementor-element-aa9f129 .elementor-button{background:linear-gradient(135deg,#D8B87E,#D98A2B)!important;border-radius:999px!important;padding:16px 36px!important;font-size:19px!important;font-weight:700!important;box-shadow:0 10px 26px rgba(217,138,43,.38)}
+.elementor-element-9857999 .elementor-heading-title{font-size:17.5px!important;color:#C7B9E2!important;font-weight:400!important}
+
+@media (prefers-reduced-motion: reduce){
+  .rst-hero-pin{height:auto}
+  .rst-hero-pin .hero{position:relative}
+  .rst-hero-pin .hero-slide2{opacity:1;transform:none}
+  .rst-hero-pin .rbtn-gold::after,.elementor-element-266cae3 .rst-flow{animation:none}
+  .elementor-element-457933d .seq-canvas,.elementor-element-457933d .seq-poster{animation:none}
+}
+
+/* ===== header exact metrics (1:1) ===== */
+.elementor-element-02e7bd7{min-height:0!important}
+.elementor-element-02e7bd7 .elementor-heading-title{font-size:22px!important;line-height:1.05!important}
+.elementor-element-02e7bd7 .elementor-widget-heading{margin:0!important}
+.elementor-element-02e7bd7 .elementor-widget-image img{height:52px!important;width:auto!important}
+.elementor-element-02e7bd7 .elementor-icon-list-item a,.elementor-element-02e7bd7 .elementor-icon-list-text{font-size:22.5px!important}
+.elementor-element-02e7bd7 .elementor-button{font-size:20px!important;padding:12px 30px!important;border-radius:999px!important}
+/* ===== footer exact metrics (1:1) ===== */
+.elementor-element-e499769{padding:52px 28px 40px!important}
+.elementor-element-e499769 img{height:84px!important;width:auto!important}
+.elementor-element-e499769 .elementor-heading-title{font-size:16.5px!important;color:#C7B9E2!important;font-weight:500!important}
+.elementor-element-e499769 .elementor-widget-text-editor{font-size:16.5px!important;color:rgba(255,255,255,.7)!important;margin-top:34px}
+/* ===== sticky bottom CTA ===== */
+.rst-sticky-cta{display:none!important}
+.elementor-element-02e7bd7{height:82px!important;padding-top:0!important;padding-bottom:0!important;align-items:center!important}
+.elementor-element-02e7bd7.elementor-sticky--effects{height:70px!important}
+
+/* ===== mobile: kill Elementor entrance animations (no flash/pop after appear) + never leave sections hidden ===== */
+@media(max-width:700px){
+  .elementor-352420 .elementor-invisible,.elementor-352420 .animated{opacity:1!important;visibility:visible!important;animation:none!important}
+  /* mentor stats card: clean equal 3-across */
+  .elementor-element-83be4cf{flex-wrap:nowrap!important;gap:2px!important;align-items:stretch!important}
+  .elementor-element-83be4cf>*{flex:1 1 0!important;min-width:0!important;width:33.33%!important;max-width:33.33%!important;padding:14px 4px!important}
+  .elementor-element-83be4cf .elementor-counter-number-wrapper,.elementor-element-83be4cf .elementor-counter-number-prefix,.elementor-element-83be4cf .elementor-counter-number,.elementor-element-83be4cf .elementor-counter-number-suffix{font-size:30px!important}
+  .elementor-element-83be4cf .elementor-counter-title{font-size:13px!important;line-height:1.3!important}
+}
+/* ===== global: safe heading line-height so wrapped lines never overlap (fixes narrow-screen breaks) ===== */
+.elementor-352420 .elementor-heading-title{line-height:1.3!important}
+.elementor-352420 .elementor-icon-box-title{line-height:1.25!important}
+/* ===== accordion questions: clean right-alignment (RTL) at every resolution, no orphan words ===== */
+.elementor-element-890f0be .elementor-tab-title,.elementor-element-b12c31f .elementor-tab-title{text-align:right!important}
+.elementor-element-890f0be .elementor-tab-title a,.elementor-element-b12c31f .elementor-tab-title a{text-align:right!important;text-wrap:pretty;overflow-wrap:break-word}
+/* ===== roadmap GROW note — original pill style ===== */
+.elementor-element-281f4b9{max-width:900px!important;margin:34px auto 0!important;background:#F5F1F9!important;border-radius:14px!important;padding:20px 26px!important}
+.elementor-element-281f4b9 p{margin:0!important;font-size:17px!important;text-align:right!important;color:#2B2350}
+/* ===== global: English glyphs always in brand Latin font ===== */
+.elementor-352420 .elementor-heading-title,.elementor-352420 .elementor-widget-text-editor,
+.elementor-352420 .elementor-icon-box-title,.elementor-352420 .elementor-icon-box-description,
+.elementor-352420 .elementor-icon-list-text,.elementor-352420 .elementor-button-text,
+.elementor-352420 .elementor-tab-title,.elementor-352420 .elementor-tab-title a,.elementor-352420 .elementor-tab-content,
+.elementor-352420 .elementor-counter-number-wrapper,.elementor-352420 .elementor-counter-title,
+.elementor-352420 .elementor-field-textual,.elementor-352420 .rst-tcolumns .tcard p{
+  font-family:'FbMonopolitser','FbMonopolitser En',Heebo,sans-serif!important}
+
+/* ===== mobile refinements ===== */
+@media(max-width:700px){
+  /* gradient flow instead of the key video/poster */
+  .elementor-element-266cae3 .elementor-background-video-container{display:none!important}
+  /* clippings: stacked, readable */
+  .elementor-element-61e98db,.elementor-element-bda0dfa{width:88%!important;max-width:88%!important;margin:0 auto 18px!important}
+  .elementor-element-61e98db{transform:rotate(-3deg)}
+  .elementor-element-bda0dfa{transform:rotate(2deg)}
+  /* addictions strip: column, centered, full-width (drop desktop inset) */
+  .elementor-element-49f63bb{padding:0!important}
+  .elementor-element-cb6494f .elementor-icon-box-wrapper{flex-direction:column!important;text-align:center!important;gap:12px}
+  .elementor-element-cb6494f .elementor-icon-box-title{white-space:normal!important}
+  /* dom-close: shrink on phones */
+  .elementor-element-0432164 p:nth-child(1){font-size:30px!important}
+  .elementor-element-0432164 p:nth-child(2){font-size:24px!important}
+}
+@media(min-width:901px){
+  .elementor-element-02e7bd7{position:sticky;}
+  .elementor-element-02e7bd7 .elementor-widget-icon-list{position:absolute!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:auto!important;margin:0!important}
+}
+
+/* ===== roadmap flow arrows ===== */
+.rst-arrow{position:absolute;top:50%;transform:translateY(-50%);width:55px;height:55px;border-radius:50%;background:#fff;border:1.5px solid rgba(216,184,126,.75);color:#D98A2B;display:flex;align-items:center;justify-content:center;font-size:27px;font-weight:700;z-index:2;box-shadow:0 6px 16px rgba(59,42,120,.14);animation:rstArrowPulse 2.6s ease-in-out infinite}
+@keyframes rstArrowPulse{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(-5px)}}
+.elementor-element-3d0587d{position:relative}
+/* mobile down-arrows between stacked roadmap cards */
+.rst-arrow-dn{top:auto;left:50%;transform:translateX(-50%);width:46px;height:46px;font-size:23px;animation:rstArrowDn 2.6s ease-in-out infinite}
+@keyframes rstArrowDn{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+/* ===== header: never wrap ===== */
+.elementor-element-02e7bd7{flex-wrap:nowrap!important}
+@media(max-width:700px){
+  .elementor-element-02e7bd7{height:auto!important;min-height:60px!important;padding-top:8px!important;padding-bottom:8px!important}
+  .elementor-element-02e7bd7 .elementor-widget-image img{height:40px!important}
+  .elementor-element-02e7bd7 .elementor-heading-title{font-size:15px!important}
+  .elementor-element-02e7bd7 .elementor-button{font-size:13.5px!important;padding:8px 16px!important;white-space:nowrap}
+}
+@media(max-width:560px){
+  .elementor-element-02e7bd7 .elementor-heading-title span{display:none!important}
+  .elementor-element-02e7bd7 .elementor-heading-title br{display:none!important}
+}
+
+/* ===== reserve section (dmei rishum) ===== */
+.elementor-element-f8a3c43{display:flex;justify-content:center}
+.elementor-element-f8a3c43 .elementor-heading-title{display:inline-flex;align-items:baseline;gap:10px;background:rgba(255,255,255,.09)!important;border:1px solid rgba(255,255,255,.22)!important;border-radius:18px!important;padding:16px 34px!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.elementor-element-7b2515b .elementor-icon-list-items{display:flex!important;flex-wrap:wrap;justify-content:center;gap:14px 34px}
+.elementor-element-7b2515b .elementor-icon-list-item{margin:0!important;padding:0!important}
+.elementor-element-7b2515b .elementor-icon-list-text{font-size:18px}
+.rst-reserve-btn .elementor-button{transition:transform .25s,filter .25s}
+.rst-reserve-btn .elementor-button:hover{transform:translateY(-2px);filter:brightness(1.06)}
+@media(max-width:640px){
+  .elementor-element-7b2515b .elementor-icon-list-items{flex-direction:column;align-items:center;gap:12px}
+  .rst-reserve-btn .elementor-button{width:100%}
+}
+
+/* ===== 2026-07-29 mobile polish: lock horizontal drift + header CTA gap + Gil section ===== */
+/* lock the page to vertical scroll: clip any sub-pixel x-overflow and kill the side rubber-band */
+html{overflow-x:clip;overscroll-behavior-x:none}
+body{overscroll-behavior-x:none}
+@media(max-width:700px){
+  /* header: keep the gold CTA off the left edge; stop the pill overflowing its flex-shrunk cell */
+  .elementor-element-02e7bd7>.e-con-inner{padding-left:14px!important;padding-right:14px!important;gap:8px!important}
+  .elementor-element-02e7bd7 .elementor-element-bf0cfb3{flex:0 0 auto!important}
+  .elementor-element-02e7bd7 .elementor-element-2b346dd{min-width:0!important}
+  .elementor-element-02e7bd7 .elementor-button{font-size:13px!important;padding:8px 14px!important;white-space:nowrap}
+  /* Gil endorsement: drop the leaked 37% desktop panorama inset (padding-left:144px on 390) → full mobile width */
+  .elementor-element-943958b{padding-left:22px!important;padding-right:22px!important}
+  .elementor-element-943958b>.e-con-inner{padding-left:0!important;padding-right:0!important}
+}
+
+/* ===== 2026-07-29 (round 2): mentor photo top+circle · Gil smooth bg · video slider ===== */
+@media(max-width:700px){
+  /* #1 mentor: Yigal photo as a circular avatar at the TOP, above the copy (was pushed below the text) */
+  .elementor-element-81fdb31>.e-con-inner{flex-direction:column!important}
+  .elementor-element-48391af{order:-1!important;width:100%!important;max-width:100%!important;display:flex!important;justify-content:center!important;margin:0 auto 12px!important}
+  .elementor-element-48391af .elementor-widget-container{display:flex;justify-content:center}
+  .elementor-element-48391af img{width:164px!important;height:164px!important;border-radius:50%!important;object-fit:cover!important;object-position:center 20%!important;border:4px solid #D8B87E!important;box-shadow:0 10px 30px rgba(30,42,102,.35)}
+  /* #2 Gil endorsement: smooth brand gradient instead of the busy panorama photo */
+  .elementor-element-943958b{background-image:linear-gradient(165deg,#2A1F5E 0%,#3B2A78 52%,#1E2A66 100%)!important;background-color:#2A1F5E!important}
+  .elementor-element-943958b::before{background:linear-gradient(180deg,rgba(43,35,80,.10),rgba(30,42,102,.30))!important}
+  /* #4 video testimonials: phone card width (slider mechanics are in the base block below) */
+  .elementor-element-c024b98>.elementor-element{flex:0 0 84%!important;max-width:84%!important}
+}
+
+/* ===== video testimonials carousel (Vimeo whitelist embeds, injected by restart-wp.js) ===== */
+.elementor-element-c024b98{flex-wrap:nowrap!important;overflow-x:auto!important;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;touch-action:pan-x;overscroll-behavior-x:contain;gap:18px!important;padding-bottom:14px!important;scroll-padding-inline:24px;align-items:stretch!important}
+.elementor-element-c024b98::-webkit-scrollbar{height:0;display:none}
+.elementor-element-c024b98>.elementor-element,.elementor-element-c024b98>.rst-vcard{flex:0 0 300px;max-width:300px;scroll-snap-align:center}
+/* wide screens: cap the carousel width + larger cards so they don't look small/lost */
+.rst-vwrap{max-width:1160px;margin-inline:auto}
+@media(min-width:1000px){.elementor-element-c024b98>.elementor-element{flex:0 0 340px!important;max-width:340px!important}}
+@media(min-width:1500px){.elementor-element-c024b98>.elementor-element{flex:0 0 360px!important;max-width:360px!important}}
+.rst-vcard{position:relative;border-radius:13px;overflow:hidden;cursor:pointer;background:#1a1147;border:1px solid rgba(216,184,126,.55);box-shadow:0 16px 38px rgba(30,42,102,.30);transition:transform .3s var(--ease-brand),box-shadow .3s;display:flex;flex-direction:column}
+.rst-vcard:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(30,42,102,.42)}
+.rst-vthumb{position:relative;aspect-ratio:1/1;background:#241A52;overflow:hidden}
+.rst-vimg{position:absolute;inset:0;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover;object-position:center;display:block;filter:url(#rst-duo)}
+.rst-vthumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,26,82,0) 58%,rgba(36,26,82,.5) 100%)}
+/* subtle / gentle play button — frosted translucent, not a bold gold slab */
+.rst-vplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.20);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);border:1.5px solid rgba(255,255,255,.72);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(20,14,45,.28);z-index:2;transition:transform .25s,background .25s}
+.rst-vcard:hover .rst-vplay{transform:translate(-50%,-50%) scale(1.07);background:rgba(255,255,255,.30)}
+.rst-vplay svg{width:22px;height:22px;fill:#fff;margin-inline-start:2px;filter:drop-shadow(0 1px 2px rgba(20,14,45,.4))}
+.rst-vfoot{display:flex;align-items:center;justify-content:center;padding:13px 16px;background:linear-gradient(180deg,#241A52,#1E2A66)}
+.rst-vname{font-family:'FbMonopolitser','FbMonopolitser En',sans-serif!important;font-weight:900;font-size:21px;color:#D8B87E;line-height:1.2;text-align:center}
+.rst-vcard.playing .rst-vthumb,.rst-vcard.playing .rst-vplay{display:none}
+.rst-vframe{aspect-ratio:1/1;background:#000}
+.rst-vframe iframe{width:100%;height:100%;border:0;display:block}
+/* native Elementor video widgets: full-size square wrapper (so the 15px radius actually clips the cover),
+   brand duotone on the cover overlay. Elementor renders the overlay+play; we only frame + tint. */
+.elementor-element-c024b98{width:100%!important}
+.elementor-element-c024b98 .elementor-widget-video{margin:0!important}
+/* the whole card = widget-container (image + name footer), clipped to 15px */
+.elementor-element-c024b98 .elementor-widget-video>.elementor-widget-container{width:100%;border-radius:15px;overflow:hidden;box-shadow:0 16px 38px rgba(30,42,102,.30);border:1px solid rgba(216,184,126,.55);background:#241A52}
+.elementor-element-c024b98 .elementor-widget-video .elementor-wrapper{position:relative;width:100%;aspect-ratio:1/1}
+.elementor-element-c024b98 .elementor-custom-embed-image-overlay{filter:url(#rst-duo)}
+/* speaker-name footer strip under each cover */
+.elementor-element-c024b98 .rst-vname{background:linear-gradient(180deg,#241A52,#1E2A66);color:#D8B87E;font-family:'FbMonopolitser','FbMonopolitser En',sans-serif!important;font-weight:900;font-size:19px;text-align:center;padding:12px 12px;line-height:1.2}
+/* carousel nav arrows — below the row, outline style (distinct from the solid-gold play button) */
+.rst-vwrap{position:relative;width:100%}
+.rst-vnav-row{display:flex;justify-content:center;gap:16px;margin-top:20px}
+.rst-vnav{width:50px;height:50px;padding:0;border:2px solid rgba(216,184,126,.85);border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 16px rgba(59,42,120,.14);transition:transform .2s,opacity .2s,background .2s}
+.rst-vnav:hover{transform:translateY(-2px);background:#FBF6EC}
+.rst-vnav svg{width:22px;height:22px;fill:none;stroke:#D98A2B;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.rst-vnav.off{opacity:.3;pointer-events:none}
+@media(max-width:700px){
+  /* smaller cards that peek the next one (swipe affordance), not viewport-filling */
+  .elementor-element-c024b98>.rst-vcard,.elementor-element-c024b98>.elementor-element{flex:0 0 70%!important;max-width:70%!important}
+  .elementor-element-c024b98{gap:12px!important;scroll-padding-inline:16px}
+  .rst-vplay{width:52px;height:52px}
+  .rst-vname{font-size:18px}
+  .rst-vfoot{padding:11px 14px}
+  .rst-vnav{width:46px;height:46px}
+  .rst-vnav svg{width:20px;height:20px}
+  .rst-vnav-row{margin-top:16px;gap:14px}
+}
+/* hard-contain the video section so the horizontal scroller can never push the page sideways */
+.elementor-element-9656376{max-width:100%!important;overflow-x:clip}
+.elementor-element-c024b98,.rst-vwrap{max-width:100%!important}
+.elementor-element-c024b98{overscroll-behavior:contain!important}
+body{overflow-x:clip}
+
+/* ==================== mobile: tighten vertical gaps between sections ==================== */
+/* Section padding lives in --padding-block-* vars on top-level .e-parent containers (90-120px on mobile).
+   Cap them so inter-section gaps are minimal. Only touches parents that already have the vars — nested
+   containers keep their own spacing. */
+@media(max-width:700px){
+  .elementor-352420 .e-con.e-parent{--padding-block-start:34px!important;--padding-block-end:34px!important}
+  /* trim leftover large top-margins on a couple of inner containers */
+  .elementor-352420 .elementor-element-761521b,
+  .elementor-352420 .elementor-element-1e31151{margin-top:22px!important}
+  /* hide decorative single-letter avatars on the mobile pain cards (anonymous quotes; match desktop marquee) */
+  .elementor-352420 .elementor-element-08f53c9,
+  .elementor-352420 .elementor-element-8483272,
+  .elementor-352420 .elementor-element-02f7903,
+  .elementor-352420 .elementor-element-4fe12d7,
+  .elementor-352420 .elementor-element-dc6998f{display:none!important}
+}

@@ -1,0 +1,6 @@
+*
+!.gitignore
+!restart-wp.js
+!restart-wp.css
+!media/
+!media/**
