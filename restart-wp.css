@@ -230,6 +230,10 @@ html.rst-academy .elementor-352420 .elementor-icon-box-title,
 html.rst-academy .elementor-352420 .elementor-icon-box-description,
 html.rst-academy .elementor-352420 .elementor-field,
 html.rst-academy .elementor-352420 .elementor-field-label{font-family:'FbMonopolitser','FbMonopolitser En',sans-serif}
+/* academy theme adds its own card frame to icon-box widgets → double border. Kill the inner one;
+   the card look stays on our containers. */
+html.rst-academy .elementor-352420 .elementor-widget-icon-box>.elementor-widget-container,
+html.rst-academy .elementor-352420 .elementor-widget-icon-box .elementor-icon-box-wrapper{border:none!important;box-shadow:none!important;background:transparent!important}
 .elementor-element-02e7bd7.elementor-sticky--effects .elementor-heading-title,
 .elementor-element-02e7bd7.elementor-sticky--effects .elementor-heading-title *{color:#2B2350!important}
 .elementor-element-02e7bd7.elementor-sticky--effects .elementor-icon-list-text,
