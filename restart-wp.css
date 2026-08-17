@@ -236,7 +236,10 @@ html.rst-academy .elementor-352420 .elementor-counter-number-wrapper,
 html.rst-academy .elementor-352420 .elementor-icon-box-title,
 html.rst-academy .elementor-352420 .elementor-icon-box-description,
 html.rst-academy .elementor-352420 .elementor-field,
-html.rst-academy .elementor-352420 .elementor-field-label{font-family:'FbMonopolitser','FbMonopolitser En',sans-serif}
+html.rst-academy .elementor-352420 .elementor-field-label,
+html.rst-academy .elementor-352420 label,
+html.rst-academy .rst-hero-pin .scroll-cue{font-family:'FbMonopolitser','FbMonopolitser En',sans-serif}
+html.rst-academy .elementor-352420 .elementor-heading-title span{font-family:inherit}
 /* academy theme adds its own card frame to icon-box widgets → double border. Kill the inner one;
    the card look stays on our containers. */
 html.rst-academy .elementor-352420 .elementor-widget-icon-box>.elementor-widget-container,
