@@ -1,5 +1,20 @@
 /* RESTART — 1:1 bundle for the Elementor page (rambam-medicine.org.il/restart-preview)
-   Served from Vercel. Pairs with restart-wp.js. Class names match the original index.html. */
+   Served from GitHub/jsDelivr. Pairs with restart-wp.js. Class names match the original index.html. */
+
+/* ===== FbMonopolitser @font-face — needed on the Academy subsite (fonts are uploaded on the
+   root site only; academy pages would otherwise fall back). Harmless duplicate on root. ===== */
+@font-face{font-family:'FbMonopolitser';src:url('https://rambam-medicine.org.il/wp-content/uploads/2026/07/FbMonopolitserHeb-ExtraLight.otf') format('opentype');font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:'FbMonopolitser';src:url('https://rambam-medicine.org.il/wp-content/uploads/2026/07/FbMonopolitserHeb-Light.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'FbMonopolitser';src:url('https://rambam-medicine.org.il/wp-content/uploads/2026/07/FbMonopolitserHeb-Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'FbMonopolitser';src:url('https://rambam-medicine.org.il/wp-content/uploads/2026/07/FbMonopolitserHeb-Medium.otf') format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'FbMonopolitser';src:url('https://rambam-medicine.org.il/wp-content/uploads/2026/07/FbMonopolitserHeb-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'FbMonopolitser';src:url('https://rambam-medicine.org.il/wp-content/uploads/2026/07/FbMonopolitserHeb-Black.otf') format('opentype');font-weight:800 900;font-style:normal;font-display:swap}
+@font-face{font-family:'FbMonopolitser En';src:url('https://rambam-medicine.org.il/wp-content/uploads/2026/07/FbMonopolitserEn-ExtraLight.otf') format('opentype');font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:'FbMonopolitser En';src:url('https://rambam-medicine.org.il/wp-content/uploads/2026/07/FbMonopolitserEn-Light.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'FbMonopolitser En';src:url('https://rambam-medicine.org.il/wp-content/uploads/2026/07/FbMonopolitserEn-Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'FbMonopolitser En';src:url('https://rambam-medicine.org.il/wp-content/uploads/2026/07/FbMonopolitserEn-Medium.otf') format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'FbMonopolitser En';src:url('https://rambam-medicine.org.il/wp-content/uploads/2026/07/FbMonopolitserEn-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'FbMonopolitser En';src:url('https://rambam-medicine.org.il/wp-content/uploads/2026/07/FbMonopolitserEn-Black.otf') format('opentype');font-weight:800 900;font-style:normal;font-display:swap}
 
 :root{
   --mh-deep-purple:#3B2A78;--mh-violet:#6C4FA1;--mh-lavender:#A98BC9;--mh-lavender-10:#F5F1F9;
