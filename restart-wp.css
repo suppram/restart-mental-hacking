@@ -207,8 +207,15 @@
 /* academy subsite: Pro sticky doesn't engage there — CSS sticky replica (JS toggles --effects).
    --rst-hdr = the academy theme header height when that header is fixed/sticky (JS-measured),
    so the RESTART top bar sticks right BELOW it instead of hiding behind it. */
-html.rst-academy .elementor-element-02e7bd7{position:sticky;top:var(--rst-hdr,0px);z-index:99}
-html.rst-academy .elementor-element-02e7bd7.elementor-sticky--effects{background:rgba(244,242,250,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 18px rgba(59,42,120,.10)}
+html.rst-academy .elementor-element-02e7bd7{position:sticky;top:var(--rst-hdr,0px);z-index:99;background:rgba(247,245,252,.96)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 18px rgba(59,42,120,.10)}
+/* academy: bar has a permanent light background → always-dark text + brand font (theme fights back → !important) */
+html.rst-academy .elementor-element-02e7bd7 .elementor-heading-title,
+html.rst-academy .elementor-element-02e7bd7 .elementor-heading-title *,
+html.rst-academy .elementor-element-02e7bd7 .elementor-icon-list-text,
+html.rst-academy .elementor-element-02e7bd7 .elementor-icon-list-item a,
+html.rst-academy .elementor-element-02e7bd7 .elementor-icon-list-item a span{color:#2B2350!important;font-family:'FbMonopolitser','FbMonopolitser En',sans-serif!important}
+html.rst-academy .elementor-element-02e7bd7 .elementor-button,
+html.rst-academy .elementor-element-02e7bd7 .elementor-button-text{font-family:'FbMonopolitser','FbMonopolitser En',sans-serif!important}
 /* academy theme ships aggressive green button styles — force our components back onto the brand palette */
 html.rst-academy .rst-vnav{background:#fff!important;border:2px solid rgba(216,184,126,.85)!important;border-radius:50%!important;color:#D98A2B!important;box-shadow:0 6px 16px rgba(59,42,120,.14)!important}
 html.rst-academy .rst-vnav:hover{background:#FBF6EC!important}

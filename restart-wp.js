@@ -12,7 +12,7 @@ if(rstRoot) rstRoot.classList.add('elementor-352420');
 /* load the paired stylesheet (Elementor strips @import from custom CSS) */
 var lnk=document.createElement('link');
 lnk.rel='stylesheet';
-lnk.href='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v7/restart-wp.css';
+lnk.href='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v8/restart-wp.css';
 document.head.appendChild(lnk);
 var VBASE='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v1/media/';
 var reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
