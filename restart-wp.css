@@ -214,6 +214,22 @@ html.rst-academy .rst-vnav{background:#fff!important;border:2px solid rgba(216,1
 html.rst-academy .rst-vnav:hover{background:#FBF6EC!important}
 html.rst-academy .rst-vnav svg{fill:none!important;stroke:#D98A2B!important}
 html.rst-academy .rst-arrow,html.rst-academy .rst-arrow-dn{background:#fff!important;border:1.5px solid rgba(216,184,126,.75)!important;color:#D98A2B!important}
+/* academy: widgets inheriting GLOBAL kit typography resolve against the academy kit's fonts —
+   pin them back to the brand font. No !important: explicit per-widget families (e.g. the
+   latin 'FbMonopolitser En' on RESTART headings) still win via their higher-specificity rules. */
+html.rst-academy .elementor-352420 .elementor-heading-title,
+html.rst-academy .elementor-352420 .elementor-widget-text-editor,
+html.rst-academy .elementor-352420 .elementor-button,
+html.rst-academy .elementor-352420 .elementor-icon-list-text,
+html.rst-academy .elementor-352420 .elementor-tab-title,
+html.rst-academy .elementor-352420 .elementor-tab-title a,
+html.rst-academy .elementor-352420 .elementor-tab-content,
+html.rst-academy .elementor-352420 .elementor-counter-title,
+html.rst-academy .elementor-352420 .elementor-counter-number-wrapper,
+html.rst-academy .elementor-352420 .elementor-icon-box-title,
+html.rst-academy .elementor-352420 .elementor-icon-box-description,
+html.rst-academy .elementor-352420 .elementor-field,
+html.rst-academy .elementor-352420 .elementor-field-label{font-family:'FbMonopolitser','FbMonopolitser En',sans-serif}
 .elementor-element-02e7bd7.elementor-sticky--effects .elementor-heading-title,
 .elementor-element-02e7bd7.elementor-sticky--effects .elementor-heading-title *{color:#2B2350!important}
 .elementor-element-02e7bd7.elementor-sticky--effects .elementor-icon-list-text,
