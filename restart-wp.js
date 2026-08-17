@@ -12,7 +12,7 @@ if(rstRoot) rstRoot.classList.add('elementor-352420');
 /* load the paired stylesheet (Elementor strips @import from custom CSS) */
 var lnk=document.createElement('link');
 lnk.rel='stylesheet';
-lnk.href='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v4/restart-wp.css';
+lnk.href='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v5/restart-wp.css';
 document.head.appendChild(lnk);
 var VBASE='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v1/media/';
 var reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -333,18 +333,21 @@ if(!reducedMotion && matchMedia('(pointer:fine)').matches){
 (function(){
   if(location.pathname.indexOf('/academy/')<0) return;
   document.documentElement.classList.add('rst-academy');
-  /* if the academy theme header is fixed/sticky, our top bar must stick BELOW it */
+  /* if the academy theme header is fixed/sticky, our top bar must stick BELOW its actual
+     bottom edge (rect.bottom — accounts for the wp admin bar and inner Pro-sticky sections) */
   function hdr(){
-    var h=document.querySelector('.elementor-location-header');
     var off=0;
-    if(h){
-      var cs=getComputedStyle(h);
-      var inner=h.querySelector('.elementor-sticky--active');
-      if(cs.position==='fixed'||cs.position==='sticky') off=Math.round(h.getBoundingClientRect().height);
-      else if(inner) off=Math.round(inner.getBoundingClientRect().height);
-      else if(h.getBoundingClientRect().top>=-2 && scrollY>50) off=Math.round(h.getBoundingClientRect().height);
-    }
-    document.documentElement.style.setProperty('--rst-hdr',off+'px');
+    var h=document.querySelector('.elementor-location-header');
+    var cands=[h, h&&h.querySelector('.elementor-sticky--active'), document.querySelector('.elementor-sticky--active')];
+    cands.forEach(function(el){
+      if(!el) return;
+      var cs=getComputedStyle(el);
+      if(cs.position==='fixed'||cs.position==='sticky'){
+        var b=el.getBoundingClientRect().bottom;
+        if(b>off) off=Math.round(b);
+      }
+    });
+    document.documentElement.style.setProperty('--rst-hdr',Math.max(0,off)+'px');
   }
   function fx(){
     var b=document.querySelector('.elementor-element-02e7bd7');
