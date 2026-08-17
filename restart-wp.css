@@ -204,6 +204,9 @@
 
 /* ===== header solid state: reliable dark text + slimmer bar ===== */
 .elementor-element-02e7bd7.elementor-sticky--effects{padding-top:8px!important;padding-bottom:8px!important}
+/* academy subsite: Pro sticky doesn't engage there — CSS sticky replica (JS toggles --effects) */
+html.rst-academy .elementor-element-02e7bd7{position:sticky;top:0;z-index:99}
+html.rst-academy .elementor-element-02e7bd7.elementor-sticky--effects{background:rgba(244,242,250,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 18px rgba(59,42,120,.10)}
 .elementor-element-02e7bd7.elementor-sticky--effects .elementor-heading-title,
 .elementor-element-02e7bd7.elementor-sticky--effects .elementor-heading-title *{color:#2B2350!important}
 .elementor-element-02e7bd7.elementor-sticky--effects .elementor-icon-list-text,

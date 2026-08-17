@@ -12,7 +12,7 @@ if(rstRoot) rstRoot.classList.add('elementor-352420');
 /* load the paired stylesheet (Elementor strips @import from custom CSS) */
 var lnk=document.createElement('link');
 lnk.rel='stylesheet';
-lnk.href='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v2/restart-wp.css';
+lnk.href='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v3/restart-wp.css';
 document.head.appendChild(lnk);
 var VBASE='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v1/media/';
 var reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -324,6 +324,21 @@ if(!reducedMotion && matchMedia('(pointer:fine)').matches){
   b.className='rst-here-badge';
   b.textContent='אתה כאן';
   card.appendChild(b);
+})();
+
+/* ==================== academy subsite: emulate the top-bar sticky ====================
+   The copied pages live on the /academy/ subsite where Elementor Pro's sticky handler does
+   not engage for the top bar (02e7bd7, sticky:top in data). Replicate it: CSS position:sticky
+   (html.rst-academy scope) + toggle the same .elementor-sticky--effects class the root uses. */
+(function(){
+  if(location.pathname.indexOf('/academy/')<0) return;
+  document.documentElement.classList.add('rst-academy');
+  function fx(){
+    var b=document.querySelector('.elementor-element-02e7bd7');
+    if(b) b.classList.toggle('elementor-sticky--effects', scrollY>40);
+  }
+  addEventListener('scroll',fx,{passive:true});
+  addEventListener('load',fx); fx();
 })();
 
 /* frontal track banner pill — now a NATIVE Elementor heading widget (css class rst-track-badge)
