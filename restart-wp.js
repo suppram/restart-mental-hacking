@@ -6,13 +6,16 @@
 /* Runs on the original RESTART page AND any 1:1 duplicate (same element IDs, different post id).
    Guard on a shared element (hero 266cae3); ensure the `.elementor-352420` CSS scope is present so
    all the scoped CSS applies on the duplicate too. */
-if(!document.querySelector('.elementor-element-266cae3')) return;
-var rstRoot=document.querySelector('.elementor[data-elementor-id]');
+var rstHero=document.querySelector('.elementor-element-266cae3');
+if(!rstHero) return;
+/* scope class must land on the CONTENT document — on the academy subsite the first
+   .elementor on the page is the THEME HEADER template, so resolve via the hero. */
+var rstRoot=rstHero.closest('.elementor[data-elementor-id]');
 if(rstRoot) rstRoot.classList.add('elementor-352420');
 /* load the paired stylesheet (Elementor strips @import from custom CSS) */
 var lnk=document.createElement('link');
 lnk.rel='stylesheet';
-lnk.href='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v8/restart-wp.css';
+lnk.href='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v9/restart-wp.css';
 document.head.appendChild(lnk);
 var VBASE='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v1/media/';
 var reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
