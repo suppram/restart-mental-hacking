@@ -208,6 +208,8 @@
    --rst-hdr = the academy theme header height when that header is fixed/sticky (JS-measured),
    so the RESTART top bar sticks right BELOW it instead of hiding behind it. */
 html.rst-academy .elementor-element-02e7bd7{position:sticky;top:var(--rst-hdr,0px);z-index:99;background:rgba(247,245,252,.96)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 18px rgba(59,42,120,.10)}
+/* the header-version page (65208) already has the academy header on mobile — its internal top bar is redundant there */
+@media(max-width:700px){body.elementor-page-65208 .elementor-element-02e7bd7{display:none!important}}
 /* academy: bar has a permanent light background → always-dark text + brand font (theme fights back → !important) */
 html.rst-academy .elementor-element-02e7bd7 .elementor-heading-title,
 html.rst-academy .elementor-element-02e7bd7 .elementor-heading-title *,
