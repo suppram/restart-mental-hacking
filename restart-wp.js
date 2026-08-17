@@ -15,7 +15,7 @@ if(rstRoot) rstRoot.classList.add('elementor-352420');
 /* load the paired stylesheet (Elementor strips @import from custom CSS) */
 var lnk=document.createElement('link');
 lnk.rel='stylesheet';
-lnk.href='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v11/restart-wp.css';
+lnk.href='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v12/restart-wp.css';
 document.head.appendChild(lnk);
 var VBASE='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v1/media/';
 var reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -344,6 +344,8 @@ if(!reducedMotion && matchMedia('(pointer:fine)').matches){
     var cands=[h, h&&h.querySelector('.elementor-sticky--active'), document.querySelector('.elementor-sticky--active')];
     cands.forEach(function(el){
       if(!el) return;
+      /* never measure the RESTART bar itself (Pro sticky marks it .elementor-sticky--active too) */
+      if(el.classList.contains('elementor-element-02e7bd7')||el.closest('.elementor-element-02e7bd7')) return;
       var cs=getComputedStyle(el);
       if(cs.position==='fixed'||cs.position==='sticky'){
         var b=el.getBoundingClientRect().bottom;
