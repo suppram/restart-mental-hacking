@@ -15,7 +15,7 @@ if(rstRoot) rstRoot.classList.add('elementor-352420');
 /* load the paired stylesheet (Elementor strips @import from custom CSS) */
 var lnk=document.createElement('link');
 lnk.rel='stylesheet';
-lnk.href='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v12/restart-wp.css';
+lnk.href='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v13/restart-wp.css';
 document.head.appendChild(lnk);
 var VBASE='https://cdn.jsdelivr.net/gh/suppram/restart-mental-hacking@v1/media/';
 var reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -104,7 +104,21 @@ function initSeq(section, dir, frameCount, zoom){
 }
 
 /* ==================== desktop: inject the pinned hero, hide Elementor hero+intro ==================== */
-if(!mobile && !reducedMotion){
+/* Resilient init: browsers/panes occasionally report innerWidth=0 at script-exec time (and
+   delayed-JS setups run us at odd moments), which used to mis-classify desktop as mobile and skip
+   the scrub hero entirely (seen on the academy campaign page). Decide lazily, retry a few times. */
+function rstIsDesktop(){var w=innerWidth||document.documentElement.clientWidth||screen.width||0;return w>700;}
+var rstScrubDone=false;
+function rstTryScrub(){
+  if(rstScrubDone||reducedMotion) return;
+  if(!rstIsDesktop()) return;
+  rstScrubDone=true;
+  runScrubHero();
+}
+rstTryScrub();
+addEventListener('load',rstTryScrub);
+setTimeout(rstTryScrub,400); setTimeout(rstTryScrub,1200);
+function runScrubHero(){
   var elHero=document.querySelector('.elementor-element-266cae3');
   if(elHero){
     document.body.classList.add('rst-scrub');
